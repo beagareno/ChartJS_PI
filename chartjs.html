@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard com Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="display: flex; ">
+
+    <div>
+        <canvas id="myChart" style="position: relative; height:40vh; width:40vw"></canvas>></canvas>
+    </div>
+
+    <div>
+        <canvas id="myChart2" style="position: relative; height:40vh; width:40vw"></canvas>></canvas>
+    </div>
+
+
+
+</body>
+
+<script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const Linedata = {
+        labels: labels,
+        datasets: [
+            {
+            label: 'Vazamento de gás (%)',
+            backgroundColor: 'pink',
+            borderColor: 'pink',
+            data: [0, 0, 2, 4, 2, 0]
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: Linedata,
+        options: {}
+    };
+
+    
+
+</script>
+<script>
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    const labels2 = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'];
+
+    const barData = {
+        labels: labels2,
+        datasets: [
+            {
+                label: `Quantidade de alertas de vazamento (mês)`,
+                data: [5, 2, 10, 5, 2, 2],
+                borderColor: 'lightblue',
+                backgroundColor: 'lightblue',
+            }
+        ]
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: barData,
+        options: {}
+    };
+
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+
+
+</script>
+
+</html>
